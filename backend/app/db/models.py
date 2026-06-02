@@ -54,7 +54,11 @@ class InternshipJob(Base):
     description = Column(Text)
     posted_date = Column(DateTime, default=datetime.utcnow)
     company_website = Column(String)
+    founder_name = Column(String, nullable=True)
+    founder_email = Column(String, nullable=True)
     founder_linkedin = Column(String, nullable=True)
+    recruiter_name = Column(String, nullable=True)
+    recruiter_email = Column(String, nullable=True)
     recruiter_linkedin = Column(String, nullable=True)
     is_fresher_friendly = Column(Boolean, default=True)
     experience_required = Column(Integer, default=0) # in years

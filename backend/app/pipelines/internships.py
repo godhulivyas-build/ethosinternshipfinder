@@ -702,6 +702,76 @@ def calculate_quality_score(job: dict) -> tuple:
     }
     return score, breakdown
 
+def extract_name_from_linkedin(url: str) -> str:
+    if not url:
+        return ""
+    parts = url.strip("/").split("/")
+    if parts:
+        slug = parts[-1]
+        name = slug.replace("-", " ").replace("_", " ").title()
+        return name
+    return ""
+
+def fetch_contacts_from_apollo(domain: str) -> dict:
+    import urllib.request
+    from app.core.config import settings
+    api_key = settings.APOLLO_API_KEY
+    if not api_key:
+        return {}
+    
+    url = "https://api.apollo.io/v1/mixed_people/api_search"
+    headers = {
+        "Content-Type": "application/json",
+        "Cache-Control": "no-cache"
+    }
+    data = {
+        "api_key": api_key,
+        "q_organization_domains": domain,
+        "person_titles": ["Founder", "Co-Founder", "CEO", "Recruiter", "Talent Acquisition", "Head of Talent", "HR"]
+    }
+    
+    try:
+        req = urllib.request.Request(
+            url, 
+            data=json.dumps(data).encode("utf-8"), 
+            headers=headers,
+            method="POST"
+        )
+        with urllib.request.urlopen(req, timeout=5) as response:
+            res_data = json.loads(response.read().decode("utf-8"))
+            people = res_data.get("people", [])
+            
+            result = {
+                "founder_name": None,
+                "founder_email": None,
+                "founder_linkedin": None,
+                "recruiter_name": None,
+                "recruiter_email": None,
+                "recruiter_linkedin": None
+            }
+            
+            for person in people:
+                title = person.get("title", "").lower()
+                name = person.get("name")
+                email = person.get("email")
+                linkedin = person.get("linkedin_url")
+                
+                if "founder" in title or "ceo" in title:
+                    if not result["founder_name"]:
+                        result["founder_name"] = name
+                        result["founder_email"] = email
+                        result["founder_linkedin"] = linkedin
+                elif "recruiter" in title or "talent" in title or "hr" in title:
+                    if not result["recruiter_name"]:
+                        result["recruiter_name"] = name
+                        result["recruiter_email"] = email
+                        result["recruiter_linkedin"] = linkedin
+            
+            return result
+    except Exception as e:
+        print(f"Apollo.io API fetch failed for domain {domain}: {e}")
+        return {}
+
 def run_ingestion_pipeline(db: Session, force_reset: bool = False) -> list:
     """
     Cleans, scores, classifies, and saves 20 genuine startup internship opportunities daily.
@@ -772,6 +842,26 @@ def run_ingestion_pipeline(db: Session, force_reset: bool = False) -> list:
             enriched_jobs.append(existing)
             continue
             
+        # Clean domain
+        raw_website = seed.get("company_website", "")
+        clean_domain = raw_website.replace("https://", "").replace("http://", "").replace("www.", "").split("/")[0]
+        
+        # Ingest contacts
+        apollo_contacts = fetch_contacts_from_apollo(clean_domain)
+        
+        # Resolve names and emails with fallbacks
+        founder_name = apollo_contacts.get("founder_name") or extract_name_from_linkedin(seed.get("founder_linkedin"))
+        if not founder_name:
+            founder_name = f"{seed['company_name']} Founder"
+        founder_email = apollo_contacts.get("founder_email") or f"founder@{clean_domain}"
+        founder_linkedin = apollo_contacts.get("founder_linkedin") or seed.get("founder_linkedin")
+        
+        recruiter_name = apollo_contacts.get("recruiter_name") or extract_name_from_linkedin(seed.get("recruiter_linkedin"))
+        if not recruiter_name:
+            recruiter_name = f"{seed['company_name']} Recruiting Team"
+        recruiter_email = apollo_contacts.get("recruiter_email") or f"careers@{clean_domain}"
+        recruiter_linkedin = apollo_contacts.get("recruiter_linkedin") or seed.get("recruiter_linkedin")
+            
         db_job = InternshipJob(
             id=job_id,
             company_name=seed["company_name"],
@@ -784,8 +874,12 @@ def run_ingestion_pipeline(db: Session, force_reset: bool = False) -> list:
             description=seed["description"],
             posted_date=posted,
             company_website=seed["company_website"],
-            founder_linkedin=seed["founder_linkedin"],
-            recruiter_linkedin=seed["recruiter_linkedin"],
+            founder_name=founder_name,
+            founder_email=founder_email,
+            founder_linkedin=founder_linkedin,
+            recruiter_name=recruiter_name,
+            recruiter_email=recruiter_email,
+            recruiter_linkedin=recruiter_linkedin,
             is_fresher_friendly=seed["is_fresher_friendly"],
             experience_required=seed["experience_required"],
             team_size=seed["team_size"],

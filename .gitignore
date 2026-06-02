@@ -22,7 +22,8 @@ __pycache__/
 venv/
 env/
 .env
-backend/ethos.db
+ethos.db
+*.db
 
 # OS Files
 .DS_Store

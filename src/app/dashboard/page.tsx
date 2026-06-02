@@ -928,30 +928,99 @@ export default function DashboardPage() {
 
             </div>
 
-            {/* Actions */}
-            <div className="border-t border-zinc-850 pt-5 mt-6 flex flex-col gap-3 font-mono">
-              <div className="flex gap-2">
-                {selectedJob.founder_linkedin && (
-                  <a 
-                    href={selectedJob.founder_linkedin}
-                    target="_blank" 
-                    rel="noopener noreferrer" 
-                    className="flex-1 py-2 rounded border border-zinc-800 text-[10px] font-bold text-zinc-300 bg-zinc-900 hover:bg-zinc-805 text-center transition-colors cursor-pointer"
-                  >
-                    Founder LinkedIn
-                  </a>
+            {/* Direct Startup Outreach */}
+            <div className="border-t border-zinc-850 pt-4 flex flex-col gap-3">
+              <h4 className="text-[9px] font-mono uppercase tracking-wider text-zinc-500">
+                Direct Startup Outreach (No Login Required)
+              </h4>
+              
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                {/* Founder Contact */}
+                {(selectedJob.founder_name || selectedJob.founder_email || selectedJob.founder_linkedin) && (
+                  <div className="bg-zinc-950 p-3 rounded-lg border border-zinc-850 flex flex-col justify-between gap-2.5">
+                    <div>
+                      <span className="text-[9px] uppercase font-bold text-zinc-500 font-mono block">Founder / CEO</span>
+                      <span className="text-xs font-bold text-zinc-200 mt-1 block truncate" title={selectedJob.founder_name || 'Founder'}>
+                        {selectedJob.founder_name || 'Founder'}
+                      </span>
+                    </div>
+                    <div className="flex flex-col gap-1.5 font-mono text-[10px]">
+                      {selectedJob.founder_email && (
+                        <div className="flex items-center justify-between bg-[#0A0A0B] px-2 py-1 rounded border border-zinc-800">
+                          <span className="text-zinc-400 truncate max-w-[130px]" title={selectedJob.founder_email}>
+                            {selectedJob.founder_email}
+                          </span>
+                          <button 
+                            onClick={() => {
+                              navigator.clipboard.writeText(selectedJob.founder_email);
+                              alert("Founder email copied!");
+                            }} 
+                            className="text-zinc-400 hover:text-white"
+                          >
+                            <span className="material-symbols-outlined text-[12px] cursor-pointer">content_copy</span>
+                          </button>
+                        </div>
+                      )}
+                      {selectedJob.founder_linkedin && (
+                        <a 
+                          href={selectedJob.founder_linkedin} 
+                          target="_blank" 
+                          rel="noopener noreferrer" 
+                          className="text-zinc-400 hover:text-white hover:underline flex items-center gap-1 mt-0.5"
+                        >
+                          <span className="material-symbols-outlined text-[12px]">open_in_new</span>
+                          LinkedIn Profile
+                        </a>
+                      )}
+                    </div>
+                  </div>
                 )}
-                {selectedJob.recruiter_linkedin && (
-                  <a 
-                    href={selectedJob.recruiter_linkedin}
-                    target="_blank" 
-                    rel="noopener noreferrer" 
-                    className="flex-1 py-2 rounded border border-zinc-800 text-[10px] font-bold text-zinc-300 bg-zinc-900 hover:bg-zinc-805 text-center transition-colors cursor-pointer"
-                  >
-                    Recruiter LinkedIn
-                  </a>
+
+                {/* Recruiter Contact */}
+                {(selectedJob.recruiter_name || selectedJob.recruiter_email || selectedJob.recruiter_linkedin) && (
+                  <div className="bg-zinc-950 p-3 rounded-lg border border-zinc-850 flex flex-col justify-between gap-2.5">
+                    <div>
+                      <span className="text-[9px] uppercase font-bold text-zinc-500 font-mono block">Recruiter / Talent HR</span>
+                      <span className="text-xs font-bold text-zinc-200 mt-1 block truncate" title={selectedJob.recruiter_name || 'Recruiter'}>
+                        {selectedJob.recruiter_name || 'Recruiter'}
+                      </span>
+                    </div>
+                    <div className="flex flex-col gap-1.5 font-mono text-[10px]">
+                      {selectedJob.recruiter_email && (
+                        <div className="flex items-center justify-between bg-[#0A0A0B] px-2 py-1 rounded border border-zinc-800">
+                          <span className="text-zinc-400 truncate max-w-[130px]" title={selectedJob.recruiter_email}>
+                            {selectedJob.recruiter_email}
+                          </span>
+                          <button 
+                            onClick={() => {
+                              navigator.clipboard.writeText(selectedJob.recruiter_email);
+                              alert("Recruiter email copied!");
+                            }} 
+                            className="text-zinc-400 hover:text-white"
+                          >
+                            <span className="material-symbols-outlined text-[12px] cursor-pointer">content_copy</span>
+                          </button>
+                        </div>
+                      )}
+                      {selectedJob.recruiter_linkedin && (
+                        <a 
+                          href={selectedJob.recruiter_linkedin} 
+                          target="_blank" 
+                          rel="noopener noreferrer" 
+                          className="text-zinc-400 hover:text-white hover:underline flex items-center gap-1 mt-0.5"
+                        >
+                          <span className="material-symbols-outlined text-[12px]">open_in_new</span>
+                          LinkedIn Profile
+                        </a>
+                      )}
+                    </div>
+                  </div>
                 )}
               </div>
+            </div>
+
+            {/* Actions */}
+            <div className="border-t border-zinc-850 pt-5 mt-6 flex flex-col gap-3 font-mono">
 
               <div className="flex items-center gap-3">
                 <div className="flex-1 flex flex-col gap-1">
@@ -1262,7 +1331,11 @@ function getMockJobsData() {
       stipend_salary: "$2,500 / month",
       apply_link: "https://dub.co/careers",
       company_website: "https://dub.co",
+      founder_name: "Steven Tey",
+      founder_email: "steven@dub.co",
       founder_linkedin: "https://www.linkedin.com/in/steven-tey",
+      recruiter_name: "Steven Tey",
+      recruiter_email: "careers@dub.co",
       recruiter_linkedin: "https://www.linkedin.com/in/steven-tey",
       is_fresher_friendly: true,
       experience_required: 0,
@@ -1296,7 +1369,11 @@ function getMockJobsData() {
       stipend_salary: "$2,200 / month",
       apply_link: "https://loops.so/careers",
       company_website: "https://loops.so",
+      founder_name: "Chris Novavia",
+      founder_email: "chris@loops.so",
       founder_linkedin: "https://www.linkedin.com/in/chris-loops",
+      recruiter_name: "Chris Novavia",
+      recruiter_email: "careers@loops.so",
       recruiter_linkedin: "https://www.linkedin.com/in/chris-loops",
       is_fresher_friendly: true,
       experience_required: 0,
@@ -1330,7 +1407,11 @@ function getMockJobsData() {
       stipend_salary: "₹30,000 / month",
       apply_link: "https://peerlist.io/careers",
       company_website: "https://peerlist.io",
+      founder_name: "Akash Bhadange",
+      founder_email: "akash@peerlist.io",
       founder_linkedin: "https://www.linkedin.com/in/akash-bhadange",
+      recruiter_name: "Yogini Bhope",
+      recruiter_email: "yogini@peerlist.io",
       recruiter_linkedin: "https://www.linkedin.com/in/yogini-bhope",
       is_fresher_friendly: true,
       experience_required: 0,
@@ -1364,7 +1445,11 @@ function getMockJobsData() {
       stipend_salary: "$3,000 / month",
       apply_link: "https://github.com/danswer-ai/danswer",
       company_website: "https://danswer.dev",
+      founder_name: "Yuhong Sun",
+      founder_email: "yuhong@danswer.dev",
       founder_linkedin: "https://www.linkedin.com/in/yuhong-danswer",
+      recruiter_name: "Yuhong Sun",
+      recruiter_email: "careers@danswer.dev",
       recruiter_linkedin: "https://www.linkedin.com/in/yuhong-danswer",
       is_fresher_friendly: true,
       experience_required: 0,
@@ -1398,7 +1483,11 @@ function getMockJobsData() {
       stipend_salary: "$3,500 / month",
       apply_link: "https://www.llamaindex.ai",
       company_website: "https://www.llamaindex.ai",
+      founder_name: "Jerry Liu",
+      founder_email: "jerry@llamaindex.ai",
       founder_linkedin: "https://www.linkedin.com/in/jerry-liu-llamaindex",
+      recruiter_name: "Jerry Liu",
+      recruiter_email: "careers@llamaindex.ai",
       recruiter_linkedin: "https://www.linkedin.com/in/jerry-liu-llamaindex",
       is_fresher_friendly: true,
       experience_required: 1,
@@ -1432,7 +1521,11 @@ function getMockJobsData() {
       stipend_salary: "$2,000 / month",
       apply_link: "https://resend.com/careers",
       company_website: "https://resend.com",
+      founder_name: "Zeno Rocha",
+      founder_email: "zeno@resend.com",
       founder_linkedin: "https://www.linkedin.com/in/zeno-rocha",
+      recruiter_name: "Zeno Rocha",
+      recruiter_email: "careers@resend.com",
       recruiter_linkedin: "https://www.linkedin.com/in/zeno-rocha",
       is_fresher_friendly: true,
       experience_required: 0,
