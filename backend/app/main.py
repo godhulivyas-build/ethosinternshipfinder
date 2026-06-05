@@ -26,7 +26,19 @@ app.add_middleware(
 
 app.include_router(api_router, prefix="/api/v1")
 
+@app.on_event("startup")
+def on_startup():
+    from app.core.scheduler import start_scheduler
+    # Start the 2-hour automated background scheduler
+    start_scheduler()
+
+@app.on_event("shutdown")
+def on_shutdown():
+    from app.core.scheduler import stop_scheduler
+    stop_scheduler()
+
 @app.get("/")
 def root():
     return {"message": "ETHOS Backend is running. Access /docs for API documentation."}
+
 

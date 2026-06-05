@@ -255,3 +255,86 @@ def get_daily_digests_digest(db: Session = Depends(get_db)):
     if not jobs:
         jobs = run_ingestion_pipeline(db)
     return generate_daily_digests(jobs)
+
+class WhatsAppRequest(BaseModel):
+    message_text: str
+
+@router.post("/ingest-whatsapp")
+def ingest_whatsapp_message(request: WhatsAppRequest, db: Session = Depends(get_db)):
+    """
+    Accepts forwarded hiring message text from admin WhatsApp channels.
+    Extracts opportunity, uses search agent if link is missing, verifies link, and saves to DB.
+    """
+    from app.services.telegram import extract_jobs_from_raw_text
+    from app.services.search_agent import find_best_application_link
+    from app.services.verification import verify_application_link
+    from app.pipelines.internships import calculate_quality_score
+    import uuid
+    
+    extracted = extract_jobs_from_raw_text(request.message_text)
+    if not extracted:
+        raise HTTPException(status_code=400, detail="Could not extract any job opportunities from the text.")
+        
+    saved_jobs = []
+    for job in extracted:
+        apply_link = job.get("apply_link")
+        if not apply_link or apply_link.strip() == "":
+            link = find_best_application_link(job["company_name"], job["role_name"])
+            if link:
+                job["apply_link"] = link
+                apply_link = link
+            else:
+                continue
+                
+        # Deduplication
+        unique_str = f"{job['company_name']}_{job['role_name']}_{apply_link}".lower()
+        job_id = str(uuid.uuid5(uuid.NAMESPACE_DNS, unique_str))
+        
+        existing = db.query(InternshipJob).filter_by(id=job_id).first()
+        if existing:
+            continue
+            
+        # Verification
+        is_active, status_desc = verify_application_link(apply_link)
+        if not is_active:
+            continue
+            
+        # Scoring
+        score, breakdown = calculate_quality_score(job)
+        
+        db_job = InternshipJob(
+            id=job_id,
+            company_name=job["company_name"],
+            role_name=job["role_name"],
+            job_type=job.get("job_type", "Internship"),
+            work_type=job.get("work_type", "Remote"),
+            location=job.get("location", "Remote"),
+            stipend_salary=job.get("stipend_salary", "Unspecified"),
+            apply_link=apply_link,
+            description=job.get("description", ""),
+            posted_date=datetime.utcnow(),
+            company_website=job.get("company_website", ""),
+            founder_name=job.get("founder_name", f"{job['company_name']} Founder"),
+            founder_email=job.get("founder_email", ""),
+            founder_linkedin=job.get("founder_linkedin", ""),
+            recruiter_name=job.get("recruiter_name", f"{job['company_name']} Recruiter"),
+            recruiter_email=job.get("recruiter_email", ""),
+            recruiter_linkedin=job.get("recruiter_linkedin", ""),
+            is_fresher_friendly=job.get("is_fresher_friendly", True),
+            experience_required=job.get("experience_required", 0),
+            team_size=job.get("team_size", "10-50 employees"),
+            funding_stage=job.get("funding_stage", "Seed"),
+            category=job.get("category", "Management"),
+            skills=job.get("skills", []),
+            resume_keywords=job.get("resume_keywords", []),
+            suggested_projects=job.get("suggested_projects", []),
+            ats_keywords=job.get("ats_keywords", []),
+            quality_score=score,
+            scoring_breakdown=breakdown
+        )
+        db.add(db_job)
+        saved_jobs.append(db_job)
+        
+    db.commit()
+    return {"status": "success", "jobs_count": len(saved_jobs), "message": f"Successfully ingested {len(saved_jobs)} opportunities from WhatsApp."}
+
