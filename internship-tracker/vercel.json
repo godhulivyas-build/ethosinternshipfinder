@@ -5,7 +5,10 @@
       "src": "api/index.py",
       "use": "@vercel/python",
       "config": {
-        "includeFiles": "database.sqlite"
+        "includeFiles": [
+          "database.sqlite",
+          "backend/**"
+        ]
       }
     },
     {
