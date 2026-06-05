@@ -12,7 +12,8 @@ export default function SettingsPage() {
     // Redirect to the FastAPI Google OAuth login endpoint
     // We pass a dummy user_id for now since we removed Clerk. 
     // In production, this would be the JWT subject.
-    window.location.href = "http://localhost:8000/api/v1/auth/google/login?user_id=12345678-1234-5678-1234-567812345678";
+    const API_BASE = process.env.NEXT_PUBLIC_API_URL || (typeof window !== 'undefined' && window.location.origin.includes('localhost') ? 'http://localhost:8000' : '');
+    window.location.href = `${API_BASE}/api/v1/auth/google/login?user_id=12345678-1234-5678-1234-567812345678`;
   };
 
   return (

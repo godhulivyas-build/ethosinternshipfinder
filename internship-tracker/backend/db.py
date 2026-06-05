@@ -9,13 +9,20 @@ DB_PATH = os.path.join(BASE_DIR, 'database.sqlite')
 
 def get_db_connection():
     """Establishes and returns a connection to the SQLite database with dictionary-like row factory."""
-    os.makedirs(os.path.dirname(DB_PATH), exist_ok=True)
-    conn = sqlite3.connect(DB_PATH)
+    if os.getenv("VERCEL") == "1":
+        # Open in read-only mode since Vercel serverless filesystem is read-only
+        conn = sqlite3.connect(f"file:{DB_PATH}?mode=ro", uri=True)
+    else:
+        os.makedirs(os.path.dirname(DB_PATH), exist_ok=True)
+        conn = sqlite3.connect(DB_PATH)
     conn.row_factory = sqlite3.Row
     return conn
 
 def init_db():
     """Initializes the database by creating the internships table if it does not exist."""
+    if os.getenv("VERCEL") == "1":
+        return # Skip table creation on Vercel (database is read-only and already initialized)
+        
     conn = get_db_connection()
     cursor = conn.cursor()
     
@@ -172,6 +179,10 @@ def insert_feedback(feedback_data):
     """
     Inserts a user feedback dictionary into the database.
     """
+    if os.getenv("VERCEL") == "1":
+        print(f"Vercel (Read-Only Mode) Feedback received: {feedback_data}")
+        return True
+        
     conn = get_db_connection()
     cursor = conn.cursor()
     try:
@@ -197,6 +208,10 @@ def insert_click(event_type, details=None):
     """
     Inserts a click tracking record into the database.
     """
+    if os.getenv("VERCEL") == "1":
+        print(f"Vercel (Read-Only Mode) Click logged: {event_type} - {details}")
+        return True
+        
     conn = get_db_connection()
     cursor = conn.cursor()
     try:
