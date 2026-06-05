@@ -7,6 +7,19 @@ from datetime import datetime
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DB_PATH = os.path.join(BASE_DIR, 'database.sqlite')
 
+# Fallback path search in case Vercel's bundler relocated database.sqlite
+if not os.path.exists(DB_PATH):
+    for root_dir, _, files in os.walk(os.path.dirname(BASE_DIR) or BASE_DIR):
+        if 'database.sqlite' in files:
+            DB_PATH = os.path.join(root_dir, 'database.sqlite')
+            break
+    else:
+        # Check current working directory as last resort
+        for root_dir, _, files in os.walk('.'):
+            if 'database.sqlite' in files:
+                DB_PATH = os.path.abspath(os.path.join(root_dir, 'database.sqlite'))
+                break
+
 def get_db_connection():
     """Establishes and returns a connection to the SQLite database with dictionary-like row factory."""
     if os.getenv("VERCEL") == "1":

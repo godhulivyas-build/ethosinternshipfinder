@@ -5,7 +5,11 @@ from db import get_all_internships, insert_feedback, insert_click, get_analytics
 
 # Initialize Flask app
 # The static folder points to the frontend directory relative to backend
-app = Flask(__name__, static_folder='../frontend', static_url_path='')
+frontend_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '../frontend'))
+if os.path.exists(frontend_dir):
+    app = Flask(__name__, static_folder=frontend_dir, static_url_path='')
+else:
+    app = Flask(__name__)
 
 from db import init_db
 init_db()
