@@ -4,7 +4,7 @@ export default function PerspectivePage() {
   return (
     <div className="flex w-full min-h-screen">
       {/* TopAppBar */}
-      <header className="fixed top-0 w-full z-50 flex justify-between items-center px-container-padding h-16 bg-surface/80 backdrop-blur-xl border-b border-outline-variant/10">
+      <header className="fixed top-0 w-full z-50 flex justify-between items-center px-container-padding h-16 bg-surface/80 backdrop-blur-xl border-b border-outline-variant/30">
         <div className="flex items-center gap-stack-lg">
           <span className="font-display-lg text-display-lg font-semibold tracking-tighter text-on-surface">
             ETHOS
@@ -40,7 +40,7 @@ export default function PerspectivePage() {
       </header>
 
       {/* SideNavBar */}
-      <aside className="fixed left-0 top-0 h-full z-40 flex flex-col py-stack-lg bg-surface-dim/50 backdrop-blur-2xl border-r border-outline-variant/10 w-[240px] pt-20">
+      <aside className="fixed left-0 top-0 h-full z-40 flex flex-col py-stack-lg bg-surface backdrop-blur-2xl border-r border-outline-variant/30 w-[240px] pt-20">
         <div className="px-6 mb-8">
           <div className="flex items-center gap-3">
             <div className="w-8 h-8 rounded bg-primary/20 flex items-center justify-center border border-primary/30">
@@ -59,7 +59,7 @@ export default function PerspectivePage() {
           </div>
         </div>
         <nav className="flex flex-col gap-1">
-          <a className="flex items-center gap-4 text-on-surface-variant px-4 py-3 hover:bg-white/5 hover:text-on-surface transition-all" href="#">
+          <a className="flex items-center gap-4 text-on-surface-variant px-4 py-3 hover:bg-surface-container-low/60 hover:text-on-surface transition-all" href="#">
             <span className="material-symbols-outlined">
               grid_view
             </span>
@@ -67,7 +67,7 @@ export default function PerspectivePage() {
               Dashboard
             </span>
           </a>
-          <a className="flex items-center gap-4 text-on-surface-variant px-4 py-3 hover:bg-white/5 hover:text-on-surface transition-all" href="#">
+          <a className="flex items-center gap-4 text-on-surface-variant px-4 py-3 hover:bg-surface-container-low/60 hover:text-on-surface transition-all" href="#">
             <span className="material-symbols-outlined">
               fingerprint
             </span>
@@ -83,7 +83,7 @@ export default function PerspectivePage() {
               Intelligence
             </span>
           </a>
-          <a className="flex items-center gap-4 text-on-surface-variant px-4 py-3 hover:bg-white/5 hover:text-on-surface transition-all" href="#">
+          <a className="flex items-center gap-4 text-on-surface-variant px-4 py-3 hover:bg-surface-container-low/60 hover:text-on-surface transition-all" href="#">
             <span className="material-symbols-outlined">
               hub
             </span>
@@ -91,7 +91,7 @@ export default function PerspectivePage() {
               Nexus
             </span>
           </a>
-          <a className="flex items-center gap-4 text-on-surface-variant px-4 py-3 hover:bg-white/5 hover:text-on-surface transition-all" href="#">
+          <a className="flex items-center gap-4 text-on-surface-variant px-4 py-3 hover:bg-surface-container-low/60 hover:text-on-surface transition-all" href="#">
             <span className="material-symbols-outlined">
               tune
             </span>
@@ -164,10 +164,10 @@ export default function PerspectivePage() {
                   "The intersection of artificial logic and human intuition creates a synthetic clarity previously unattainable."
                 </p>
                 <div className="pt-2 flex flex-wrap gap-2">
-                  <span className="px-2 py-0.5 rounded bg-surface-container-highest text-[10px] text-outline font-label-mono border border-outline-variant/10">
+                  <span className="px-2 py-0.5 rounded bg-surface-container-highest text-[10px] text-outline font-label-mono border border-outline-variant/30">
                     #cognition
                   </span>
-                  <span className="px-2 py-0.5 rounded bg-surface-container-highest text-[10px] text-outline font-label-mono border border-outline-variant/10">
+                  <span className="px-2 py-0.5 rounded bg-surface-container-highest text-[10px] text-outline font-label-mono border border-outline-variant/30">
                     #synthesis
                   </span>
                 </div>
@@ -279,7 +279,7 @@ export default function PerspectivePage() {
                   </span>
                   Commit Synthesis
                 </button>
-                <button className="px-4 border border-outline-variant/30 rounded-lg hover:bg-white/5 transition-all">
+                <button className="px-4 border border-outline-variant/30 rounded-lg hover:bg-surface-container-low/60 transition-all">
                   <span className="material-symbols-outlined text-on-surface">
                     refresh
                   </span>

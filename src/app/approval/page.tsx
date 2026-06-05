@@ -26,7 +26,7 @@ export default function ApprovalQueuePage() {
       }} />
 
       {/* Top Navigation Shell */}
-      <header className="fixed top-0 w-full z-50 flex justify-between items-center px-container-padding h-16 bg-surface/80 backdrop-blur-xl border-b border-outline-variant/10">
+      <header className="fixed top-0 w-full z-50 flex justify-between items-center px-container-padding h-16 bg-surface/80 backdrop-blur-xl border-b border-outline-variant/30">
         <div className="flex items-center gap-stack-lg">
           <span className="font-display-lg text-display-lg font-semibold tracking-tighter text-on-surface">ETHOS</span>
           <nav className="hidden md:flex items-center gap-gutter">
@@ -36,7 +36,7 @@ export default function ApprovalQueuePage() {
           </nav>
         </div>
         <div className="flex items-center gap-gutter">
-          <div className="flex items-center gap-stack-sm bg-surface-container-low px-stack-md py-1.5 rounded-lg border border-outline-variant/10">
+          <div className="flex items-center gap-stack-sm bg-surface-container-low px-stack-md py-1.5 rounded-lg border border-outline-variant/30">
             <span className="material-symbols-outlined text-outline text-[18px]">search</span>
             <input className="bg-transparent border-none focus:ring-0 text-body-md w-48 text-on-surface placeholder:text-outline outline-none" placeholder="Search alignment logs..." type="text" />
           </div>
@@ -46,7 +46,7 @@ export default function ApprovalQueuePage() {
       </header>
 
       {/* Side Navigation Shell */}
-      <aside className="fixed left-0 top-0 h-full z-40 flex flex-col py-stack-lg bg-surface-dim/50 backdrop-blur-2xl border-r border-outline-variant/10 w-[240px]">
+      <aside className="fixed left-0 top-0 h-full z-40 flex flex-col py-stack-lg bg-surface backdrop-blur-2xl border-r border-outline-variant/30 w-[240px]">
         <div className="px-6 mb-stack-lg mt-12">
           <div className="flex items-center gap-3">
             <div className="w-8 h-8 rounded bg-primary/20 flex items-center justify-center">
@@ -59,11 +59,11 @@ export default function ApprovalQueuePage() {
           </div>
         </div>
         <nav className="flex-1 space-y-1">
-          <a className="flex items-center gap-4 text-on-surface-variant px-4 py-3 hover:bg-white/5 hover:text-on-surface transition-all" href="#">
+          <a className="flex items-center gap-4 text-on-surface-variant px-4 py-3 hover:bg-surface-container-low/60 hover:text-on-surface transition-all" href="#">
             <span className="material-symbols-outlined">grid_view</span>
             <span className="font-body-md">Dashboard</span>
           </a>
-          <a className="flex items-center gap-4 text-on-surface-variant px-4 py-3 hover:bg-white/5 hover:text-on-surface transition-all" href="#">
+          <a className="flex items-center gap-4 text-on-surface-variant px-4 py-3 hover:bg-surface-container-low/60 hover:text-on-surface transition-all" href="#">
             <span className="material-symbols-outlined">fingerprint</span>
             <span className="font-body-md">Identity</span>
           </a>
@@ -71,17 +71,17 @@ export default function ApprovalQueuePage() {
             <span className="material-symbols-outlined">psychology</span>
             <span className="font-body-md">Intelligence</span>
           </a>
-          <a className="flex items-center gap-4 text-on-surface-variant px-4 py-3 hover:bg-white/5 hover:text-on-surface transition-all" href="#">
+          <a className="flex items-center gap-4 text-on-surface-variant px-4 py-3 hover:bg-surface-container-low/60 hover:text-on-surface transition-all" href="#">
             <span className="material-symbols-outlined">hub</span>
             <span className="font-body-md">Nexus</span>
           </a>
-          <a className="flex items-center gap-4 text-on-surface-variant px-4 py-3 hover:bg-white/5 hover:text-on-surface transition-all" href="#">
+          <a className="flex items-center gap-4 text-on-surface-variant px-4 py-3 hover:bg-surface-container-low/60 hover:text-on-surface transition-all" href="#">
             <span className="material-symbols-outlined">tune</span>
             <span className="font-body-md">Settings</span>
           </a>
         </nav>
         <div className="px-4 mt-auto space-y-2">
-          <div className="bg-surface-container-high/40 p-3 rounded-lg border border-outline-variant/10">
+          <div className="bg-surface-container-high/40 p-3 rounded-lg border border-outline-variant/30">
             <div className="flex justify-between items-center mb-2">
               <span className="text-[10px] font-label-mono text-outline">COMMAND HUB</span>
               <span className="text-[10px] font-label-mono bg-white/10 px-1.5 py-0.5 rounded text-on-surface">⌘ K</span>
@@ -164,7 +164,7 @@ export default function ApprovalQueuePage() {
                     <span className="text-label-mono text-[10px]">89.0% Match</span>
                   </div>
                 </div>
-                <div className="p-3 bg-surface-container-lowest/50 rounded-lg border border-outline-variant/10 mb-3">
+                <div className="p-3 bg-surface-container-lowest/50 rounded-lg border border-outline-variant/30 mb-3">
                   <div className="flex gap-1 mb-2">
                     <div className="h-1 flex-1 bg-primary rounded-full"></div>
                     <div className="h-1 flex-1 bg-primary rounded-full"></div>
@@ -203,7 +203,7 @@ export default function ApprovalQueuePage() {
                     <span className="text-label-mono text-[10px]">Manually Adjusted</span>
                   </div>
                 </div>
-                <div className="relative w-full h-24 rounded-lg overflow-hidden mb-3 bg-surface-container-lowest border border-outline-variant/10 flex items-center justify-center">
+                <div className="relative w-full h-24 rounded-lg overflow-hidden mb-3 bg-surface-container-lowest border border-outline-variant/30 flex items-center justify-center">
                   <span className="material-symbols-outlined text-[32px] text-outline/30">description</span>
                 </div>
                 <p className="text-body-md text-on-surface mb-4 line-clamp-2">Adjusted security parameters for federated learning cycles.</p>

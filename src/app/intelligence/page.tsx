@@ -20,7 +20,7 @@ export default function IntelligencePage() {
       }} />
 
       {/* TopAppBar Navigation Shell */}
-      <header className="fixed top-0 w-full z-50 flex justify-between items-center px-container-padding h-16 bg-surface/80 backdrop-blur-xl border-b border-outline-variant/10">
+      <header className="fixed top-0 w-full z-50 flex justify-between items-center px-container-padding h-16 bg-surface/80 backdrop-blur-xl border-b border-outline-variant/30">
         <div className="flex items-center gap-8">
           <span className="font-display-lg text-display-lg font-semibold tracking-tighter text-on-surface">ETHOS</span>
           <nav className="hidden md:flex gap-6 items-center">
@@ -40,7 +40,7 @@ export default function IntelligencePage() {
       </header>
 
       {/* SideNavBar Shell */}
-      <aside className="fixed left-0 top-0 h-full z-40 flex flex-col py-stack-lg bg-surface-dim/50 backdrop-blur-2xl border-r border-outline-variant/10 w-[240px] hidden md:flex">
+      <aside className="fixed left-0 top-0 h-full z-40 flex flex-col py-stack-lg bg-surface backdrop-blur-2xl border-r border-outline-variant/30 w-[240px] hidden md:flex">
         <div className="px-6 mb-10 mt-12">
           <div className="flex items-center gap-3">
             <div className="w-8 h-8 rounded-full bg-primary-container flex items-center justify-center">
@@ -53,11 +53,11 @@ export default function IntelligencePage() {
           </div>
         </div>
         <nav className="flex-1 space-y-1">
-          <a className="flex items-center gap-4 text-on-surface-variant px-6 py-3 hover:bg-white/5 hover:text-on-surface transition-all" href="#">
+          <a className="flex items-center gap-4 text-on-surface-variant px-6 py-3 hover:bg-surface-container-low/60 hover:text-on-surface transition-all" href="#">
             <span className="material-symbols-outlined">grid_view</span>
             <span className="font-body-md">Dashboard</span>
           </a>
-          <a className="flex items-center gap-4 text-on-surface-variant px-6 py-3 hover:bg-white/5 hover:text-on-surface transition-all" href="#">
+          <a className="flex items-center gap-4 text-on-surface-variant px-6 py-3 hover:bg-surface-container-low/60 hover:text-on-surface transition-all" href="#">
             <span className="material-symbols-outlined">fingerprint</span>
             <span className="font-body-md">Identity</span>
           </a>
@@ -65,11 +65,11 @@ export default function IntelligencePage() {
             <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 1" }}>psychology</span>
             <span className="font-body-md font-medium">Intelligence</span>
           </a>
-          <a className="flex items-center gap-4 text-on-surface-variant px-6 py-3 hover:bg-white/5 hover:text-on-surface transition-all" href="#">
+          <a className="flex items-center gap-4 text-on-surface-variant px-6 py-3 hover:bg-surface-container-low/60 hover:text-on-surface transition-all" href="#">
             <span className="material-symbols-outlined">hub</span>
             <span className="font-body-md">Nexus</span>
           </a>
-          <a className="flex items-center gap-4 text-on-surface-variant px-6 py-3 hover:bg-white/5 hover:text-on-surface transition-all" href="#">
+          <a className="flex items-center gap-4 text-on-surface-variant px-6 py-3 hover:bg-surface-container-low/60 hover:text-on-surface transition-all" href="#">
             <span className="material-symbols-outlined">tune</span>
             <span className="font-body-md">Settings</span>
           </a>
@@ -108,11 +108,11 @@ export default function IntelligencePage() {
 
           {/* Command Hub / Input Area */}
           <section className="mb-stack-lg">
-            <div className="ai-glow bg-surface-container-lowest rounded-xl p-6 border border-outline-variant/10 relative overflow-hidden">
+            <div className="ai-glow bg-surface-container-lowest rounded-xl p-6 border border-outline-variant/30 relative overflow-hidden">
               {/* Subtle AI Animation Placeholder */}
               <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 blur-[100px] rounded-full -mr-20 -mt-20"></div>
               <div className="relative z-10 flex flex-col gap-4">
-                <div className="flex items-center gap-4 border-b border-outline-variant/10 pb-4">
+                <div className="flex items-center gap-4 border-b border-outline-variant/30 pb-4">
                   <span className="material-symbols-outlined text-primary">mail</span>
                   <div className="flex-1">
                     <p className="text-body-lg text-on-surface">Gmail API Connected</p>
@@ -165,7 +165,7 @@ export default function IntelligencePage() {
             <div className="md:col-span-8 space-y-gutter">
               {/* Key Insights Card */}
               <div className="bg-surface-container rounded-xl border border-outline-variant/20 overflow-hidden flex flex-col h-[400px]">
-                <div className="px-6 py-4 bg-white/5 border-b border-outline-variant/10 flex justify-between items-center shrink-0">
+                <div className="px-6 py-4 bg-surface-container-low/60 border-b border-outline-variant/30 flex justify-between items-center shrink-0">
                   <div className="flex items-center gap-2">
                     <span className="material-symbols-outlined text-primary text-[20px]">subject</span>
                     <span className="text-label-mono uppercase tracking-wider text-on-surface">Extracted Source Material</span>
@@ -192,7 +192,7 @@ export default function IntelligencePage() {
               {/* Actionable Framework / Generated Draft */}
               <div className="bg-surface-container rounded-xl border border-outline-variant/20 overflow-hidden relative">
                 <div className="absolute inset-0 bg-primary/5 pointer-events-none"></div>
-                <div className="px-6 py-4 bg-white/5 border-b border-outline-variant/10 flex items-center justify-between">
+                <div className="px-6 py-4 bg-surface-container-low/60 border-b border-outline-variant/30 flex items-center justify-between">
                   <div className="flex items-center gap-2">
                     <span className="material-symbols-outlined text-primary text-[20px]">edit_document</span>
                     <span className="text-label-mono uppercase tracking-wider text-on-surface">Tone-Applied Synthesis (LinkedIn Draft)</span>
@@ -203,7 +203,7 @@ export default function IntelligencePage() {
                   </button>
                 </div>
                 <div className="p-6">
-                  <div className="bg-black/20 p-5 rounded-lg border border-outline-variant/10 relative group">
+                  <div className="bg-black/20 p-5 rounded-lg border border-outline-variant/30 relative group">
                     <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity flex gap-2">
                       <button className="w-8 h-8 flex items-center justify-center rounded-full bg-surface-container hover:bg-surface-variant text-on-surface transition-colors">
                         <span className="material-symbols-outlined text-[16px]">content_copy</span>
@@ -264,7 +264,7 @@ export default function IntelligencePage() {
               </div>
 
               {/* Mental Models Used */}
-              <div className="bg-surface-container-low rounded-xl border border-outline-variant/10 p-5">
+              <div className="bg-surface-container-low rounded-xl border border-outline-variant/30 p-5">
                 <div className="text-label-mono text-outline uppercase tracking-widest text-[10px] mb-4">Mental Model Map</div>
                 <div className="space-y-3">
                   <div className="flex items-center gap-3">
@@ -280,7 +280,7 @@ export default function IntelligencePage() {
                     <span className="text-on-surface text-sm">Second-Order Effects</span>
                   </div>
                 </div>
-                <div className="mt-6 pt-4 border-t border-outline-variant/10">
+                <div className="mt-6 pt-4 border-t border-outline-variant/30">
                   <div className="rounded bg-surface-container px-3 py-2 flex items-center gap-3">
                     <img alt="Source Document Thumbnail" className="w-8 h-8 rounded-full grayscale opacity-50" data-alt="A macro photograph of high-tech circuit board patterns with glowing blue and violet light paths, representing digital intelligence and neural networks. The aesthetic is clean, sharp, and minimalist, using a dark graphite background to emphasize the precision of the glowing light traces. It conveys a sense of high-performance computing and future technology." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBiU-w2Gs0P7UGqlSp6zWWIVFAZjCVfwo4j2hZYsWAR9NVtEUr3N7gDlimzP7BHFScjkRVRbx5yyQt6VrEd-0GoR_dCDHFjPF66RX_CBCXCOhZVY253bWw8L9wWy6tc_RaEV5zwfN0cgiAIx1rEuDSrBlqecyruZ14zwyCUHqWeTyZj9sTOP-70LnI_7oMgHv78i_DNSd0cCett61qKupEub56udy51seBQPEX6KvStuNMKjsNZPTOfQ6W1ZNRg28UUzTMOCbMijGM" />
                     <div className="overflow-hidden">
@@ -293,11 +293,11 @@ export default function IntelligencePage() {
 
               {/* Export Actions */}
               <div className="flex flex-col gap-2">
-                <button className="w-full flex items-center justify-between px-4 py-3 bg-white/5 border border-outline-variant/20 rounded-lg hover:bg-white/10 transition-all group">
+                <button className="w-full flex items-center justify-between px-4 py-3 bg-surface-container-low/60 border border-outline-variant/20 rounded-lg hover:bg-white/10 transition-all group">
                   <span className="text-on-surface font-medium">Export to Vault</span>
                   <span className="material-symbols-outlined text-outline group-hover:text-primary">archive</span>
                 </button>
-                <button className="w-full flex items-center justify-between px-4 py-3 bg-white/5 border border-outline-variant/20 rounded-lg hover:bg-white/10 transition-all group">
+                <button className="w-full flex items-center justify-between px-4 py-3 bg-surface-container-low/60 border border-outline-variant/20 rounded-lg hover:bg-white/10 transition-all group">
                   <span className="text-on-surface font-medium">Synthesize Nexus Map</span>
                   <span className="material-symbols-outlined text-outline group-hover:text-primary">hub</span>
                 </button>
@@ -318,7 +318,7 @@ export default function IntelligencePage() {
       </footer>
 
       {/* Mobile Navigation */}
-      <nav className="md:hidden fixed bottom-0 left-0 w-full h-16 bg-surface/90 backdrop-blur-xl border-t border-outline-variant/10 flex justify-around items-center z-50">
+      <nav className="md:hidden fixed bottom-0 left-0 w-full h-16 bg-surface/90 backdrop-blur-xl border-t border-outline-variant/30 flex justify-around items-center z-50">
         <a className="flex flex-col items-center gap-1 text-on-surface-variant" href="#">
           <span className="material-symbols-outlined">grid_view</span>
         </a>

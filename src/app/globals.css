@@ -4,27 +4,27 @@
 
 @layer base {
   :root {
-    --bg: #0A0A0B;
-    --surface: #111113;
-    --surface-2: #18181B;
-    --border: #1E1E22;
-    --border-hover: #2E2E34;
-    --text: #FAFAFA;
-    --text-secondary: #8E8E93;
-    --text-muted: #52525B;
-    --accent: #6366F1;
-    --accent-hover: #818CF8;
-    --accent-glow: rgba(99, 102, 241, 0.15);
-    --success: #22C55E;
-    --warning: #F59E0B;
-    --error: #EF4444;
-    --purple: #8B5CF6;
-    --gradient: linear-gradient(135deg, #6366F1, #8B5CF6, #A78BFA);
+    --bg: #fcf9f8;
+    --surface: #ffffff;
+    --surface-2: #f6f3f2;
+    --border: #e5e2e1;
+    --border-hover: #bfc9c5;
+    --text: #1A1A1A;
+    --text-secondary: #3f4946;
+    --text-muted: #6f7976;
+    --accent: #034F46;
+    --accent-hover: #003630;
+    --accent-glow: rgba(3, 79, 70, 0.06);
+    --success: #034F46;
+    --warning: #ffb59d;
+    --error: #ba1a1a;
+    --purple: #6b48b8;
+    --gradient: linear-gradient(135deg, #034F46, #6b48b8, #AD8BFF);
     --radius: 12px;
     --radius-sm: 8px;
     --radius-lg: 16px;
-    --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 4px 16px rgba(0,0,0,0.2);
-    --shadow-lg: 0 4px 32px rgba(0,0,0,0.4);
+    --shadow: 0 4px 12px rgba(26, 26, 26, 0.04);
+    --shadow-lg: 0 12px 48px rgba(26, 26, 26, 0.08);
   }
 
   body {
@@ -84,10 +84,10 @@ img { max-width: 100%; display: block; }
 /* ========== NAV ========== */
 .nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    background: rgba(10,10,11,0.8); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
-    border-bottom: 1px solid rgba(30,30,34,0.3); transition: border-bottom-color 0.3s;
+    background: rgba(252, 249, 248, 0.8); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(229, 226, 225, 0.5); transition: border-bottom-color 0.3s;
 }
-.nav.scrolled { border-bottom-color: rgba(30,30,34,0.8); }
+.nav.scrolled { border-bottom-color: rgba(229, 226, 225, 0.8); }
 .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; height: 64px; display: flex; align-items: center; justify-content: space-between; }
 .nav-logo { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 1.1rem; }
 .logo-mark {

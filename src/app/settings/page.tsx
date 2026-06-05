@@ -47,7 +47,7 @@ export default function SettingsPage() {
       </header>
 
       {/* SideNavBar */}
-      <aside className="fixed left-0 top-0 h-full z-40 flex flex-col py-stack-lg bg-surface-dim/50 backdrop-blur-2xl border-r border-outline-variant/10 w-[240px] hidden md:flex">
+      <aside className="fixed left-0 top-0 h-full z-40 flex flex-col py-stack-lg bg-surface border-r border-outline-variant/30 w-[240px] hidden md:flex">
         <div className="px-6 mb-10 mt-12">
           <div className="flex flex-col">
             <span className="font-label-mono text-label-mono uppercase tracking-widest text-surface-tint">
@@ -59,7 +59,7 @@ export default function SettingsPage() {
           </div>
         </div>
         <nav className="flex-1 flex flex-col gap-1">
-          <Link className="flex items-center gap-4 text-on-surface-variant px-4 py-3 hover:bg-white/5 hover:text-on-surface transition-all" href="/dashboard">
+          <Link className="flex items-center gap-4 text-on-surface-variant px-4 py-3 hover:bg-surface-container-low/60 hover:text-on-surface transition-all" href="/dashboard">
             <span className="material-symbols-outlined">
               grid_view
             </span>
@@ -67,7 +67,7 @@ export default function SettingsPage() {
               Dashboard
             </span>
           </Link>
-          <Link className="flex items-center gap-4 text-on-surface-variant px-4 py-3 hover:bg-white/5 hover:text-on-surface transition-all" href="/analytics">
+          <Link className="flex items-center gap-4 text-on-surface-variant px-4 py-3 hover:bg-surface-container-low/60 hover:text-on-surface transition-all" href="/analytics">
             <span className="material-symbols-outlined">
               fingerprint
             </span>
@@ -75,7 +75,7 @@ export default function SettingsPage() {
               Identity
             </span>
           </Link>
-          <Link className="flex items-center gap-4 text-on-surface-variant px-4 py-3 hover:bg-white/5 hover:text-on-surface transition-all" href="/intelligence">
+          <Link className="flex items-center gap-4 text-on-surface-variant px-4 py-3 hover:bg-surface-container-low/60 hover:text-on-surface transition-all" href="/intelligence">
             <span className="material-symbols-outlined">
               psychology
             </span>
@@ -83,7 +83,7 @@ export default function SettingsPage() {
               Intelligence
             </span>
           </Link>
-          <Link className="flex items-center gap-4 text-on-surface-variant px-4 py-3 hover:bg-white/5 hover:text-on-surface transition-all" href="/perspective">
+          <Link className="flex items-center gap-4 text-on-surface-variant px-4 py-3 hover:bg-surface-container-low/60 hover:text-on-surface transition-all" href="/perspective">
             <span className="material-symbols-outlined">
               hub
             </span>
@@ -324,7 +324,7 @@ export default function SettingsPage() {
                   Connected Nodes
                 </h3>
                 <div className="space-y-3">
-                  <div className="flex items-center justify-between p-2 rounded hover:bg-white/5 transition-all cursor-pointer">
+                  <div className="flex items-center justify-between p-2 rounded hover:bg-surface-container-low/60 transition-all cursor-pointer">
                     <div className="flex items-center gap-3">
                       <div className="w-8 h-8 bg-surface-variant flex items-center justify-center rounded">
                         <span className="material-symbols-outlined text-sm">
@@ -367,7 +367,7 @@ export default function SettingsPage() {
                       </button>
                     )}
                   </div>
-                  <div className="flex items-center justify-between p-2 rounded hover:bg-white/5 transition-all cursor-pointer">
+                  <div className="flex items-center justify-between p-2 rounded hover:bg-surface-container-low/60 transition-all cursor-pointer">
                     <div className="flex items-center gap-3">
                       <div className="w-8 h-8 bg-surface-variant flex items-center justify-center rounded">
                         <span className="material-symbols-outlined text-sm">

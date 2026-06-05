@@ -19,7 +19,7 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-surface-dim px-6">
+    <div className="min-h-screen flex items-center justify-center bg-background px-6">
       <div className="w-full max-w-[400px]">
         <div className="text-center mb-8">
           <Link href="/" className="inline-block">

@@ -20,7 +20,7 @@ export default function VaultPage() {
   return (
     <div className="flex w-full min-h-screen">
       {/* TopAppBar */}
-      <header className="fixed top-0 w-full z-50 flex justify-between items-center px-container-padding h-16 bg-surface/80 backdrop-blur-xl border-b border-outline-variant/10">
+      <header className="fixed top-0 w-full z-50 flex justify-between items-center px-container-padding h-16 bg-surface/80 backdrop-blur-xl border-b border-outline-variant/30">
         <div className="font-display-lg text-display-lg font-semibold tracking-tighter text-on-surface">
           ETHOS
         </div>
@@ -46,7 +46,7 @@ export default function VaultPage() {
       </header>
 
       {/* SideNavBar */}
-      <aside className="fixed left-0 top-0 h-full z-40 flex flex-col py-stack-lg bg-surface-dim/50 backdrop-blur-2xl border-r border-outline-variant/10 w-[240px] hidden md:flex">
+      <aside className="fixed left-0 top-0 h-full z-40 flex flex-col py-stack-lg bg-surface backdrop-blur-2xl border-r border-outline-variant/30 w-[240px] hidden md:flex">
         <div className="px-container-padding mb-stack-lg mt-12">
           <div className="font-label-mono text-label-mono uppercase tracking-widest text-surface-tint">
             OS.01
@@ -56,7 +56,7 @@ export default function VaultPage() {
           </div>
         </div>
         <nav className="flex flex-col flex-grow">
-          <a className="flex items-center gap-4 text-on-surface-variant px-4 py-3 hover:bg-white/5 hover:text-on-surface transition-all" href="#">
+          <a className="flex items-center gap-4 text-on-surface-variant px-4 py-3 hover:bg-surface-container-low/60 hover:text-on-surface transition-all" href="#">
             <span className="material-symbols-outlined">
               grid_view
             </span>
@@ -64,7 +64,7 @@ export default function VaultPage() {
               Dashboard
             </span>
           </a>
-          <a className="flex items-center gap-4 text-on-surface-variant px-4 py-3 hover:bg-white/5 hover:text-on-surface transition-all" href="#">
+          <a className="flex items-center gap-4 text-on-surface-variant px-4 py-3 hover:bg-surface-container-low/60 hover:text-on-surface transition-all" href="#">
             <span className="material-symbols-outlined">
               fingerprint
             </span>
@@ -72,7 +72,7 @@ export default function VaultPage() {
               Identity
             </span>
           </a>
-          <a className="flex items-center gap-4 text-on-surface-variant px-4 py-3 hover:bg-white/5 hover:text-on-surface transition-all" href="#">
+          <a className="flex items-center gap-4 text-on-surface-variant px-4 py-3 hover:bg-surface-container-low/60 hover:text-on-surface transition-all" href="#">
             <span className="material-symbols-outlined">
               psychology
             </span>
@@ -88,7 +88,7 @@ export default function VaultPage() {
               Nexus
             </span>
           </a>
-          <a className="flex items-center gap-4 text-on-surface-variant px-4 py-3 hover:bg-white/5 hover:text-on-surface transition-all" href="#">
+          <a className="flex items-center gap-4 text-on-surface-variant px-4 py-3 hover:bg-surface-container-low/60 hover:text-on-surface transition-all" href="#">
             <span className="material-symbols-outlined">
               tune
             </span>
@@ -107,8 +107,8 @@ export default function VaultPage() {
             </span>
           </div>
         </div>
-        <div className="flex flex-col border-t border-outline-variant/10 pt-4">
-          <a className="flex items-center gap-4 text-on-surface-variant px-4 py-3 hover:bg-white/5 transition-all" href="#">
+        <div className="flex flex-col border-t border-outline-variant/30 pt-4">
+          <a className="flex items-center gap-4 text-on-surface-variant px-4 py-3 hover:bg-surface-container-low/60 transition-all" href="#">
             <span className="material-symbols-outlined">
               help_outline
             </span>
@@ -116,7 +116,7 @@ export default function VaultPage() {
               Support
             </span>
           </a>
-          <a className="flex items-center gap-4 text-on-surface-variant px-4 py-3 hover:bg-white/5 transition-all" href="#">
+          <a className="flex items-center gap-4 text-on-surface-variant px-4 py-3 hover:bg-surface-container-low/60 transition-all" href="#">
             <span className="material-symbols-outlined">
               terminal
             </span>
@@ -234,7 +234,7 @@ export default function VaultPage() {
           </section>
 
           {/* Filters & Sorting */}
-          <div className="flex flex-wrap items-center gap-3 mb-stack-md border-b border-outline-variant/10 pb-6">
+          <div className="flex flex-wrap items-center gap-3 mb-stack-md border-b border-outline-variant/30 pb-6">
             <span className="text-outline font-label-mono text-xs uppercase mr-2">
               Sort by:
             </span>
@@ -288,7 +288,7 @@ export default function VaultPage() {
               <p className="text-on-surface-variant text-sm line-clamp-2 mb-6">
                 A comprehensive analysis of how verifiable computation can secure decentralized intelligence layers...
               </p>
-              <div className="mt-auto pt-4 border-t border-outline-variant/10 flex items-center justify-between">
+              <div className="mt-auto pt-4 border-t border-outline-variant/30 flex items-center justify-between">
                 <div className="flex gap-4">
                   <div className="flex items-center gap-1 text-outline">
                     <span className="material-symbols-outlined text-sm">
@@ -339,14 +339,14 @@ export default function VaultPage() {
                   Aggregated insights from 12 separate sources including podcasts, Twitter threads, and whitepapers. Major theme: Hardware scarcity vs Algorithm efficiency.
                 </p>
                 <div className="mt-4 flex flex-wrap gap-2 mb-6">
-                  <span className="bg-white/5 border border-white/10 text-[10px] text-outline font-label-mono px-2 py-0.5 rounded">
+                  <span className="bg-surface-container-low/60 border border-outline-variant/30 text-[10px] text-outline font-label-mono px-2 py-0.5 rounded">
                     #macro
                   </span>
-                  <span className="bg-white/5 border border-white/10 text-[10px] text-outline font-label-mono px-2 py-0.5 rounded">
+                  <span className="bg-surface-container-low/60 border border-outline-variant/30 text-[10px] text-outline font-label-mono px-2 py-0.5 rounded">
                     #ai-policy
                   </span>
                 </div>
-                <div className="mt-auto pt-4 border-t border-outline-variant/10 flex items-center justify-between">
+                <div className="mt-auto pt-4 border-t border-outline-variant/30 flex items-center justify-between">
                   <div className="flex gap-4">
                     <div className="flex items-center gap-1 text-outline">
                       <span className="material-symbols-outlined text-sm" data-weight="fill">
@@ -384,7 +384,7 @@ export default function VaultPage() {
               <p className="text-on-surface-variant text-sm line-clamp-2 mb-6">
                 Exploring the intersection of privacy tools and global regulatory frameworks. Source: Zero-Day Reports.
               </p>
-              <div className="mt-auto pt-4 border-t border-outline-variant/10 flex items-center justify-between">
+              <div className="mt-auto pt-4 border-t border-outline-variant/30 flex items-center justify-between">
                 <div className="flex gap-4">
                   <div className="flex items-center gap-1 text-outline">
                     <span className="material-symbols-outlined text-sm">
@@ -429,7 +429,7 @@ export default function VaultPage() {
               <p className="text-on-surface-variant text-sm line-clamp-2 mb-6">
                 Synthesized discussion on modular nuclear fission and its role in sovereign power grids.
               </p>
-              <div className="mt-auto pt-4 border-t border-outline-variant/10 flex items-center justify-between">
+              <div className="mt-auto pt-4 border-t border-outline-variant/30 flex items-center justify-between">
                 <div className="flex gap-4">
                   <div className="flex items-center gap-1 text-outline">
                     <span className="material-symbols-outlined text-sm">
@@ -466,7 +466,7 @@ export default function VaultPage() {
               <p className="text-on-surface-variant text-sm line-clamp-2 mb-6">
                 Technical breakdown of 3D-stacked memory efficiency in localized AI inference engines.
               </p>
-              <div className="mt-auto pt-4 border-t border-outline-variant/10 flex items-center justify-between">
+              <div className="mt-auto pt-4 border-t border-outline-variant/30 flex items-center justify-between">
                 <div className="flex gap-4">
                   <div className="flex items-center gap-1 text-outline">
                     <span className="material-symbols-outlined text-sm">
@@ -503,7 +503,7 @@ export default function VaultPage() {
               <p className="text-on-surface-variant text-sm line-clamp-2 mb-6">
                 Deep dive into the transition from geographic sovereignty to digital jurisdictional competition.
               </p>
-              <div className="mt-auto pt-4 border-t border-outline-variant/10 flex items-center justify-between">
+              <div className="mt-auto pt-4 border-t border-outline-variant/30 flex items-center justify-between">
                 <div className="flex gap-4">
                   <div className="flex items-center gap-1 text-outline">
                     <span className="material-symbols-outlined text-sm">
@@ -523,7 +523,7 @@ export default function VaultPage() {
 
           {/* Pagination / Load More */}
           <div className="mt-stack-lg flex flex-col items-center gap-stack-md">
-            <button className="glass-panel hover:bg-white/5 px-8 py-3 rounded-full text-on-surface font-label-mono text-xs transition-all border border-outline-variant/20">
+            <button className="glass-panel hover:bg-surface-container-low/60 px-8 py-3 rounded-full text-on-surface font-label-mono text-xs transition-all border border-outline-variant/20">
               DECODE MORE ASSETS
             </button>
             <div className="text-outline font-label-mono text-[10px] uppercase">
@@ -552,7 +552,7 @@ export default function VaultPage() {
       </div>
 
       {/* Bottom Nav for Mobile */}
-      <nav className="md:hidden fixed bottom-0 left-0 w-full bg-surface-container-low backdrop-blur-xl border-t border-outline-variant/10 h-16 flex justify-around items-center z-50">
+      <nav className="md:hidden fixed bottom-0 left-0 w-full bg-surface-container-low backdrop-blur-xl border-t border-outline-variant/30 h-16 flex justify-around items-center z-50">
         <button className="flex flex-col items-center gap-1 text-on-surface-variant">
           <span className="material-symbols-outlined">
             grid_view

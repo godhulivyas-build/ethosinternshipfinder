@@ -2,7 +2,7 @@ export default function AnalyticsPage() {
   return (
     <div className="flex w-full min-h-screen">
       {/* Side Navigation Shell */}
-      <aside className="fixed left-0 top-0 h-full z-40 flex flex-col py-stack-lg bg-surface-dim/50 backdrop-blur-2xl border-r border-outline-variant/10 w-[240px]">
+      <aside className="fixed left-0 top-0 h-full z-40 flex flex-col py-stack-lg bg-surface backdrop-blur-2xl border-r border-outline-variant/30 w-[240px]">
         <div className="px-6 mb-12">
           <h1 className="font-label-mono text-label-mono uppercase tracking-widest text-surface-tint">
             OS.01
@@ -12,7 +12,7 @@ export default function AnalyticsPage() {
           </p>
         </div>
         <nav className="flex-1 space-y-1">
-          <a className="flex items-center gap-4 text-on-surface-variant px-4 py-3 hover:bg-white/5 hover:text-on-surface transition-all" href="#">
+          <a className="flex items-center gap-4 text-on-surface-variant px-4 py-3 hover:bg-surface-container-low/60 hover:text-on-surface transition-all" href="#">
             <span className="material-symbols-outlined">
               grid_view
             </span>
@@ -20,7 +20,7 @@ export default function AnalyticsPage() {
               Dashboard
             </span>
           </a>
-          <a className="flex items-center gap-4 text-on-surface-variant px-4 py-3 hover:bg-white/5 hover:text-on-surface transition-all" href="#">
+          <a className="flex items-center gap-4 text-on-surface-variant px-4 py-3 hover:bg-surface-container-low/60 hover:text-on-surface transition-all" href="#">
             <span className="material-symbols-outlined">
               fingerprint
             </span>
@@ -37,7 +37,7 @@ export default function AnalyticsPage() {
               Intelligence
             </span>
           </a>
-          <a className="flex items-center gap-4 text-on-surface-variant px-4 py-3 hover:bg-white/5 hover:text-on-surface transition-all" href="#">
+          <a className="flex items-center gap-4 text-on-surface-variant px-4 py-3 hover:bg-surface-container-low/60 hover:text-on-surface transition-all" href="#">
             <span className="material-symbols-outlined">
               hub
             </span>
@@ -45,7 +45,7 @@ export default function AnalyticsPage() {
               Nexus
             </span>
           </a>
-          <a className="flex items-center gap-4 text-on-surface-variant px-4 py-3 hover:bg-white/5 hover:text-on-surface transition-all" href="#">
+          <a className="flex items-center gap-4 text-on-surface-variant px-4 py-3 hover:bg-surface-container-low/60 hover:text-on-surface transition-all" href="#">
             <span className="material-symbols-outlined">
               tune
             </span>
@@ -83,7 +83,7 @@ export default function AnalyticsPage() {
       </aside>
 
       {/* Top AppBar Shell */}
-      <header className="fixed top-0 w-full z-50 flex justify-between items-center px-container-padding h-16 bg-surface/80 backdrop-blur-xl border-b border-outline-variant/10 ml-[240px] md:w-[calc(100%-240px)]">
+      <header className="fixed top-0 w-full z-50 flex justify-between items-center px-container-padding h-16 bg-surface/80 backdrop-blur-xl border-b border-outline-variant/30 ml-[240px] md:w-[calc(100%-240px)]">
         <div className="flex items-center gap-8">
           <span className="font-display-lg text-[20px] font-semibold tracking-tighter text-on-surface">
             ETHOS
@@ -252,7 +252,7 @@ export default function AnalyticsPage() {
                 </span>
                 sector.
               </p>
-              <div className="mt-4 pt-4 border-t border-outline-variant/10 flex justify-between items-center">
+              <div className="mt-4 pt-4 border-t border-outline-variant/30 flex justify-between items-center">
                 <span className="text-[10px] font-label-mono">
                   STATUS: OPTIMIZED
                 </span>
@@ -283,7 +283,7 @@ export default function AnalyticsPage() {
                 </div>
               </div>
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-full bg-surface-container-highest flex items-center justify-center font-label-mono text-outline border border-white/5">
+                <div className="w-12 h-12 rounded-full bg-surface-container-highest flex items-center justify-center font-label-mono text-outline border border-outline-variant/30">
                   02
                 </div>
                 <div className="flex-1">
@@ -296,7 +296,7 @@ export default function AnalyticsPage() {
                 </div>
               </div>
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-full bg-surface-container-highest flex items-center justify-center font-label-mono text-outline border border-white/5">
+                <div className="w-12 h-12 rounded-full bg-surface-container-highest flex items-center justify-center font-label-mono text-outline border border-outline-variant/30">
                   03
                 </div>
                 <div className="flex-1">
@@ -330,7 +330,7 @@ export default function AnalyticsPage() {
                 </button>
               </div>
             </div>
-            <div className="flex-1 relative min-h-[300px] border border-outline-variant/10 bg-surface-container-lowest/50 rounded-lg">
+            <div className="flex-1 relative min-h-[300px] border border-outline-variant/30 bg-surface-container-lowest/50 rounded-lg">
               <div className="absolute inset-0 flex items-center justify-center">
                 <img alt="Knowledge Web Visualization" className="w-full h-full object-cover opacity-50" data-alt="A detailed knowledge map visualization featuring a web of interconnected nodes and glowing filaments. The structure resembles a neural network or a constellation, set against a deep matte black background. Primary nodes glow with a soft blue cyan light, while smaller connections use a muted violet. The overall aesthetic is serene, scientific, and sophisticated, avoiding traditional corporate chart styles in favor of an artistic data representation." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDdVXXjQE_oA-eABkhr6kGU864x6GcsH9M31cvDaN8bZz3U6IdXSWMgaMmQp1uYIgk6OyV2AV3d9AYTb23OSviVQd3koOQwufmvAS3yS2YITNIcKET_8DCoNS6pVgd6ldmQChLDiPVQBSyDlkRPJcPZ7NEethFCsZzbwEF_hsM27-KmAGQ6UulZVKhMZUV4ucBaZ-r6YOFslrDHFjohX6IpoTSkNlMR-cM5hU72WE1E3pMugCu1DppgJH79AhKNcVSI08udxjMlXhM" />
               </div>
@@ -351,7 +351,7 @@ export default function AnalyticsPage() {
         </div>
 
         {/* Footer Shell */}
-        <footer className="w-full flex justify-between items-center py-stack-lg mt-auto border-t border-outline-variant/10">
+        <footer className="w-full flex justify-between items-center py-stack-lg mt-auto border-t border-outline-variant/30">
           <span className="font-label-mono text-label-mono text-outline">
             ETHOS Identity OS © 2024
           </span>
