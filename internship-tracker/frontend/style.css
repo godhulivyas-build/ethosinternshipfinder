@@ -1,27 +1,54 @@
 /* CSS Custom Properties for Design System */
 :root {
-    --bg-primary: #08060f;
-    --bg-secondary: #0f0a1d;
-    --text-primary: #f1f0f5;
-    --text-secondary: #9e9bb0;
-    --accent-glow: rgba(138, 92, 246, 0.15);
-    
-    /* Harmonious HSL Tailored Palettes */
-    --accent-purple: hsl(262, 83%, 62%);
-    --accent-pink: hsl(316, 83%, 62%);
-    --accent-blue: hsl(210, 85%, 55%);
-    --accent-green: hsl(150, 75%, 45%);
-    --accent-orange: hsl(30, 85%, 55%);
-    
-    /* Glassmorphism Styles */
-    --glass-bg: rgba(20, 15, 38, 0.65);
-    --glass-border: rgba(255, 255, 255, 0.07);
-    --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
-    --card-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.25);
-    
     /* Fonts */
     --font-heading: 'Outfit', sans-serif;
     --font-body: 'Plus Jakarta Sans', sans-serif;
+    
+    /* Default Dark Theme Variables (Forest Obsidian) */
+    --bg-primary: #0A0D0B;
+    --bg-secondary: #121814;
+    --text-primary: #ECF2EE;
+    --text-secondary: #8E9993;
+    --accent-green: #42A873;
+    --accent-sage: #66C292;
+    --accent-light-green: rgba(66, 168, 115, 0.1);
+    
+    --card-bg: #101512;
+    --card-border: #212B24;
+    --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    --card-hover-shadow: 0 12px 28px rgba(0, 0, 0, 0.6);
+    
+    --glass-bg: rgba(16, 21, 18, 0.75);
+    --glass-border: rgba(255, 255, 255, 0.05);
+    --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
+    
+    --input-bg: rgba(0, 0, 0, 0.3);
+    --whatsapp-bg: rgba(66, 168, 115, 0.08);
+    --whatsapp-border: rgba(66, 168, 115, 0.2);
+}
+
+/* Light Theme overrides (Warm Beige & Sage Green) */
+body.light-theme {
+    --bg-primary: #FAF8F5;
+    --bg-secondary: #F2EDE4;
+    --text-primary: #252D29;
+    --text-secondary: #65736C;
+    --accent-green: #245037;
+    --accent-sage: #4B7C62;
+    --accent-light-green: #E5EDE9;
+    
+    --card-bg: #FFFFFF;
+    --card-border: #E4DFD5;
+    --card-shadow: 0 6px 16px rgba(37, 45, 41, 0.04);
+    --card-hover-shadow: 0 14px 32px rgba(37, 45, 41, 0.1);
+    
+    --glass-bg: rgba(255, 255, 255, 0.8);
+    --glass-border: rgba(0, 0, 0, 0.06);
+    --glass-shadow: 0 8px 32px 0 rgba(37, 45, 41, 0.04);
+    
+    --input-bg: #FFFFFF;
+    --whatsapp-bg: #E8F2EC;
+    --whatsapp-border: #BCD9C8;
 }
 
 * {
@@ -32,12 +59,12 @@
 
 body {
     background-color: var(--bg-primary);
-    background-image: radial-gradient(circle at 10% 20%, rgba(20, 12, 45, 0.8) 0%, rgba(8, 6, 15, 1) 90%);
     color: var(--text-primary);
     font-family: var(--font-body);
     min-height: 100vh;
     overflow-x: hidden;
     position: relative;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Background glowing decorative orbs */
@@ -1131,4 +1158,263 @@ footer {
         right: 1rem;
         bottom: 1rem;
     }
+    .quote-card {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+        padding: 1.2rem;
+    }
+    #new-quote-btn {
+        align-self: flex-end;
+    }
 }
+
+/* Theme Toggle Button */
+.theme-toggle-btn {
+    background: var(--bg-secondary);
+    border: 1px solid var(--card-border);
+    color: var(--text-primary);
+    width: 2.4rem;
+    height: 2.4rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 1rem;
+    box-shadow: var(--card-shadow);
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.theme-toggle-btn:hover {
+    transform: scale(1.05);
+    border-color: var(--accent-green);
+    color: var(--accent-green);
+}
+
+/* Motivational Quote Section styling */
+.quote-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 1.25rem;
+    padding: 1.4rem 2rem;
+    margin: 1.2rem 0 2rem 0;
+    box-shadow: var(--card-shadow);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.5rem;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.quote-card::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 5px;
+    background: linear-gradient(to bottom, var(--accent-green), var(--accent-sage));
+}
+
+.quote-content {
+    display: flex;
+    gap: 1.2rem;
+    align-items: flex-start;
+}
+
+.quote-icon {
+    font-size: 1.6rem;
+    color: var(--accent-sage);
+    opacity: 0.8;
+    margin-top: 0.2rem;
+}
+
+.quote-text-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+#quote-text {
+    font-size: 1.05rem;
+    font-weight: 500;
+    line-height: 1.45;
+    color: var(--text-primary);
+    font-style: italic;
+}
+
+#quote-author {
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--text-secondary);
+    letter-spacing: 0.5px;
+}
+
+#new-quote-btn {
+    background: var(--bg-secondary);
+    border: 1px solid var(--card-border);
+    color: var(--text-primary);
+    width: 2.2rem;
+    height: 2.2rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+}
+
+#new-quote-btn:hover {
+    transform: rotate(180deg);
+    border-color: var(--accent-green);
+    color: var(--accent-green);
+}
+
+/* Polished Card & Input Component Overrides */
+.card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    box-shadow: var(--card-shadow);
+}
+
+.card::before {
+    background: linear-gradient(90deg, var(--accent-green), var(--accent-sage));
+}
+
+.card:hover {
+    border-color: var(--accent-green);
+    box-shadow: var(--card-hover-shadow);
+}
+
+.logo-icon {
+    background: linear-gradient(135deg, var(--accent-green), var(--accent-sage));
+    box-shadow: 0 4px 15px var(--accent-light-green);
+}
+
+.logo-text h1 span {
+    background: linear-gradient(to right, var(--accent-green), var(--accent-sage));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.refresh-indicator i {
+    color: var(--accent-green);
+}
+
+.whatsapp-banner {
+    background: var(--whatsapp-bg);
+    border: 1px solid var(--whatsapp-border);
+    box-shadow: var(--card-shadow);
+}
+
+.banner-icon {
+    background: var(--accent-light-green);
+    border-color: var(--whatsapp-border);
+    color: var(--accent-green);
+}
+
+.banner-btn {
+    background: var(--accent-green);
+    color: #ffffff;
+    box-shadow: 0 4px 15px var(--accent-light-green);
+}
+
+.banner-btn:hover {
+    background: var(--accent-sage);
+    box-shadow: 0 6px 20px var(--accent-light-green);
+}
+
+.whatsapp-fab {
+    background: var(--accent-green);
+    color: #ffffff;
+    box-shadow: 0 8px 30px var(--accent-light-green);
+}
+
+.whatsapp-fab:hover {
+    background: var(--accent-sage);
+    box-shadow: 0 12px 35px var(--accent-light-green);
+}
+
+#search-input, .filter-group select, .feedback-form input, .feedback-form textarea {
+    background: var(--input-bg);
+    border: 1px solid var(--card-border);
+    color: var(--text-primary);
+    transition: all 0.3s ease;
+}
+
+#search-input:focus, .filter-group select:focus, .feedback-form input:focus, .feedback-form textarea:focus {
+    border-color: var(--accent-green);
+    box-shadow: 0 0 8px var(--accent-light-green);
+}
+
+.platform-badge {
+    background: var(--accent-light-green);
+    border-color: var(--accent-green);
+    color: var(--accent-green);
+}
+
+.stipend-badge {
+    background: var(--accent-light-green);
+    border-color: var(--accent-green);
+    color: var(--accent-green);
+}
+
+.stipend-badge.unpaid {
+    background: rgba(185, 129, 16, 0.08);
+    border-color: rgba(185, 129, 16, 0.25);
+    color: #d97706;
+}
+
+.detail-item i {
+    color: var(--accent-sage);
+}
+
+.apply-btn {
+    background: linear-gradient(135deg, var(--accent-green), var(--accent-sage));
+    box-shadow: 0 4px 12px var(--accent-light-green);
+}
+
+.apply-btn:hover {
+    box-shadow: 0 6px 18px var(--accent-light-green);
+}
+
+.recruiter-toggle-btn {
+    background: var(--bg-secondary);
+    border-color: var(--card-border);
+}
+
+.recruiter-toggle-btn:hover {
+    background: var(--accent-green);
+    border-color: var(--accent-green);
+    color: #ffffff;
+}
+
+.modal-content {
+    background: var(--card-bg);
+    border-color: var(--card-border);
+}
+
+.submit-btn {
+    background: linear-gradient(135deg, var(--accent-green), var(--accent-sage));
+    box-shadow: 0 4px 12px var(--accent-light-green);
+}
+
+.submit-btn:hover {
+    box-shadow: 0 6px 18px var(--accent-light-green);
+}
+
+.font-neon {
+    text-shadow: none;
+    color: var(--accent-green) !important;
+}
+
+.bg-stat-highlight {
+    background: var(--accent-light-green);
+    border-color: var(--accent-green);
+}
+

@@ -10,6 +10,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const listingsGrid = document.getElementById('listings-grid');
     const loader = document.getElementById('loader');
     const noResults = document.getElementById('no-results');
+    
+    // Theme & Quote DOM Elements
+    const themeToggleBtn = document.getElementById('theme-toggle-btn');
+    const quoteText = document.getElementById('quote-text');
+    const quoteAuthor = document.getElementById('quote-author');
+    const newQuoteBtn = document.getElementById('new-quote-btn');
 
     // Debounce timer
     let searchDebounceTimeout;
@@ -446,6 +452,64 @@ document.addEventListener('DOMContentLoaded', () => {
     if (whatsappFab) {
         whatsappFab.addEventListener('click', () => {
             trackClick('whatsapp_fab', 'Founder WhatsApp FAB Clicked');
+        });
+    }
+
+    // Motivational Quotes Database
+    const motivationalQuotes = [
+        { text: "Your time is limited, so don't waste it living someone else's life.", author: "Steve Jobs" },
+        { text: "The only way to do great work is to love what you do.", author: "Steve Jobs" },
+        { text: "Do not wait; the time will never be 'just right.'", author: "Napoleon Hill" },
+        { text: "It always seems impossible until it's done.", author: "Nelson Mandela" },
+        { text: "It's not that I'm so smart, it's just that I stay with problems longer.", author: "Albert Einstein" },
+        { text: "Start where you are. Use what you have. Do what you can.", author: "Arthur Ashe" },
+        { text: "Opportunities don't happen, you create them.", author: "Chris Grosser" },
+        { text: "You don't have to be great to start, but you have to start to be great.", author: "Zig Ziglar" },
+        { text: "The secret of getting ahead is getting started.", author: "Mark Twain" },
+        { text: "If you are working on something that you really care about, you don't have to be pushed. The vision pulls you.", author: "Steve Jobs" },
+        { text: "Everything you've ever wanted is on the other side of fear.", author: "George Addair" },
+        { text: "Build your own dreams, or someone else will hire you to build theirs.", author: "Farrah Gray" },
+        { text: "An investment in knowledge pays the best interest.", author: "Benjamin Franklin" },
+        { text: "I have not failed. I've just found 10,000 ways that won't work.", author: "Thomas A. Edison" },
+        { text: "The best way to predict your future is to create it.", author: "Abraham Lincoln" },
+        { text: "Believe you can and you're halfway there.", author: "Theodore Roosevelt" },
+        { text: "You miss 100% of the shots you don't take.", author: "Wayne Gretzky" }
+    ];
+
+    function showRandomQuote() {
+        if (!quoteText || !quoteAuthor) return;
+        const randomIndex = Math.floor(Math.random() * motivationalQuotes.length);
+        const quote = motivationalQuotes[randomIndex];
+        quoteText.textContent = `"${quote.text}"`;
+        quoteAuthor.textContent = `— ${quote.author}`;
+    }
+
+    if (newQuoteBtn) {
+        newQuoteBtn.addEventListener('click', showRandomQuote);
+    }
+    showRandomQuote();
+
+    // Theme Switcher Logic
+    const currentTheme = localStorage.getItem('theme') || 'dark';
+    applyTheme(currentTheme);
+
+    function applyTheme(theme) {
+        if (theme === 'light') {
+            document.body.classList.add('light-theme');
+            document.body.classList.remove('dark-theme');
+            if (themeToggleBtn) themeToggleBtn.innerHTML = '<i class="fa-solid fa-sun"></i>';
+        } else {
+            document.body.classList.add('dark-theme');
+            document.body.classList.remove('light-theme');
+            if (themeToggleBtn) themeToggleBtn.innerHTML = '<i class="fa-solid fa-moon"></i>';
+        }
+        localStorage.setItem('theme', theme);
+    }
+
+    if (themeToggleBtn) {
+        themeToggleBtn.addEventListener('click', () => {
+            const isLight = document.body.classList.contains('light-theme');
+            applyTheme(isLight ? 'dark' : 'light');
         });
     }
 
