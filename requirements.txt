@@ -14,3 +14,4 @@ beautifulsoup4
 httpx
 langchain-openai
 langchain-community
+requests
