@@ -149,6 +149,16 @@ def get_analytics():
     summary = get_analytics_summary()
     return jsonify(summary)
 
+import traceback
+
+@app.errorhandler(Exception)
+def handle_exception(e):
+    tb = traceback.format_exc()
+    return jsonify({
+        "error": str(e),
+        "traceback": tb.split('\n')
+    }), 500
+
 if __name__ == '__main__':
     # Run the server on port 5000 in debug mode
     app.run(host='0.0.0.0', port=5000, debug=True)
